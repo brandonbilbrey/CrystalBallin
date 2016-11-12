@@ -1,42 +1,40 @@
 import random
 
 class Game:
-    def __init__(self, TeamName, Score):
-        self.TeamName = TeamName
-        self.Score = Score
-        #self.IsHomeTeam = IsHomeTeam
-        #self.TotalAssists = TotalAssists
-        #self.AssistTurnoverRatio = AssistTurnOverRatio
+    def __init__(self, gameStats):
+        self.IsHomeTeam = gameStats["is_home_team"]
+        self.TotalAssists = gameStats["assists_total"]
+        self.AssistTurnoverRatio = gameStats["assists_turnover_ratio"]
         #self.BlockedTotal = BlockedTotal
-        #self.BlocksTotal = BlocksTotal
+        self.BlocksTotal = gameStats["blocks_total"]
         #self.CoachTechnicalFouls = CoachTechnicalFouls
         #self.Ejections = Ejections
-        #self.FastBreakPoints = FastBreakPoints
+        self.FastBreakPoints = gameStats["fast_break_points"]
         #self.FieldGoalsAttempted = FieldGoalsAttempted
-        #self.FieldGoalsMade = FieldGoalsMade
-        #self.FieldGoalsPercentage = FieldGoalsPercentage
+        self.FieldGoalsMade = gameStats["field_goals_made"]
+        self.FieldGoalsPercentage = gameStats["field_goals_percentage"]
         #self.FlagrantFouls = FlagrantFouls
         #self.FreeThrowsAttempted = FreeThrowsAttempted
-        #self.FreeThrowsMade = FreeThrowsMade
-        #self.FreeThrowsPercentage = FreeThrowsPercentage
+        self.FreeThrowsMade = gameStats["free_throws_made"]
+        self.FreeThrowsPercentage = gameStats["free_throws_percentage"]
         #self.PersonalFouls = PersonalFouls
-        #self.PointsInPaint = PointsInPaint
+        self.PointsInPaint = gameStats["points_in_paint"]
         #self.PointsScoredOffTurnovers = PointsScoredOffTurnovers
-        #self.ReboundsOffensive = ReboundsOffensive
+        self.ReboundsOffensive = gameStats["rebounds_offensive"]
         #self.ReboundsDefensive = ReboundsDefensive
-        #self.ReboundsTotal = ReboundsTotal
+        self.ReboundsTotal = gameStats["rebounds_total"]
         #self.SecondChancePoints = SecondChancePoints
-        #self.StealsTotal = StealsTotal
+        self.StealsTotal = gameStats["steals_total"]
         #self.TeamReboundsTotal = TeamReboundsTotal
         #self.TeamTurnoversTotal = TeamTurnoversTotal
         #self.TechnicalFouls = TechnicalFouls
         #self.ThreePointersAttempted = ThreePointersAttempted
-        #self.ThreePointersMade = ThreePointersMade
-        #self.ThreePointersPercentage = ThreePointersPercentage
+        self.ThreePointersMade = gameStats["three_pointers_made"]
+        self.ThreePointersPercentage = gameStats["three_pointers_percentage"]
         #self.TurnoversTotal = TurnoversTotal
         #self.TwoPointersAttempted = TwoPointersAttempted
         #self.TwoPointersMade = TwoPointersMade
-        #self.TwoPointersPercentage = TwoPointersPercentage
+        self.TwoPointersPercentage = gameStats["two_points_percentage"]
 
 class Solution:
     def __init__(self):
@@ -78,5 +76,3 @@ class Solution:
 def randomWeight():
     random.seed()
     return random.uniform(0,1)
-
-
