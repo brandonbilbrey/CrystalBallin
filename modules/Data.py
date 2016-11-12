@@ -1,3 +1,5 @@
+import random
+
 class Game:
     def __init__(self, TeamName, Score):
         self.TeamName = TeamName
@@ -37,38 +39,44 @@ class Game:
         #self.TwoPointersPercentage = TwoPointersPercentage
 
 class Solution:
-    def __init__(self, data):
-        self.data = data
-        #self.IsHomeTeamWeight = IsHomeTeamWeight
-        #self.TotalAssistsWeight = TotalAssistsWeight
-        #self.AssistTurnoverRatioWeight = AssistTurnOverRatioWeight
-        #self.BlockedTotalWeight = BlockedTotalWeight
-        #self.BlocksTotalWeight = BlocksTotalWeight
-        #self.CoachTechnicalFoulsWeight = CoachTechnicalFoulsWeight
-        #self.EjectionsWeight = EjectionsWeight
-        #self.FastBreakPointsWeight = FastBreakPointsWeight
-        #self.FieldGoalsAttemptedWeight = FieldGoalsAttemptedWeight
-        #self.FieldGoalsMadeWeight = FieldGoalsMadeWeight
-        #self.FieldGoalsPercentageWeight = FieldGoalsPercentageWeight
-        #self.FlagrantFoulsWeight = FlagrantFoulsWeight
-        #self.FreeThrowsAttemptedWeight = FreeThrowsAttemptedWeight
-        #self.FreeThrowsMadeWeight = FreeThrowsMadeWeight
-        #self.FreeThrowsPercentageWeight = FreeThrowsPercentageWeight
-        #self.PersonalFoulsWeight = PersonalFoulsWeight
-        #self.PointsInPaintWeight = PointsInPaintWeight
-        #self.PointsScoredOffTurnoversWeight = PointsScoredOffTurnoversWeight
-        #self.ReboundsOffensiveWeight = ReboundsOffensiveWeight
-        #self.ReboundsDefensiveWeight = ReboundsDefensiveWeight
-        #self.ReboundsTotalWeight = ReboundsTotalWeight
-        #self.SecondChancePointsWeight = SecondChancePointsWeight
-        #self.StealsTotalWeight = StealsTotalWeight
-        #self.TeamReboundsTotalWeight = TeamReboundsTotalWeight
-        #self.TeamTurnoversTotalWeight = TeamTurnoversTotalWeight
-        #self.TechnicalFoulsWeight = TechnicalFoulsWeight
-        #self.ThreePointersAttemptedWeight = ThreePointersAttemptedWeight
-        #self.ThreePointersMadeWeight = ThreePointersMadeWeight
-        #self.ThreePointersPercentageWeight = ThreePointersPercentageWeight
-        #self.TurnoversTotalWeight = TurnoversTotalWeight
-        #self.TwoPointersAttemptedWeight = TwoPointersAttemptedWeight
-        #self.TwoPointersMadeWeight = TwoPointersMadeWeight
-        #self.TwoPointersPercentageWeight = TwoPointersPercentageWeight
+    def __init__(self):
+        self.IsHomeTeamWeight = randomWeight()
+        self.TotalAssistsWeight = randomWeight()
+        self.AssistTurnoverRatioWeight = randomWeight()
+        self.BlockedTotalWeight = randomWeight()
+        self.BlocksTotalWeight = randomWeight()
+        self.CoachTechnicalFoulsWeight = randomWeight()
+        self.EjectionsWeight = randomWeight()
+        self.FastBreakPointsWeight = randomWeight()
+        self.FieldGoalsAttemptedWeight = randomWeight()
+        self.FieldGoalsMadeWeight = randomWeight()
+        self.FieldGoalsPercentageWeight = randomWeight()
+        self.FlagrantFoulsWeight = randomWeight()
+        self.FreeThrowsAttemptedWeight = randomWeight()
+        self.FreeThrowsMadeWeight = randomWeight()
+        self.FreeThrowsPercentageWeight = randomWeight()
+        self.PersonalFoulsWeight = randomWeight()
+        self.PointsInPaintWeight = randomWeight()
+        self.PointsScoredOffTurnoversWeight = randomWeight()
+        self.ReboundsOffensiveWeight = randomWeight()
+        self.ReboundsDefensiveWeight = randomWeight()
+        self.ReboundsTotalWeight = randomWeight()
+        self.SecondChancePointsWeight = randomWeight()
+        self.StealsTotalWeight = randomWeight()
+        self.TeamReboundsTotalWeight = randomWeight()
+        self.TeamTurnoversTotalWeight = randomWeight()
+        self.TechnicalFoulsWeight = randomWeight()
+        self.ThreePointersAttemptedWeight = randomWeight()
+        self.ThreePointersMadeWeight = randomWeight()
+        self.ThreePointersPercentageWeight = randomWeight()
+        self.TurnoversTotalWeight = randomWeight()
+        self.TwoPointersAttemptedWeight = randomWeight()
+        self.TwoPointersMadeWeight = randomWeight()
+        self.TwoPointersPercentageWeight = randomWeight()
+
+
+def randomWeight():
+    random.seed()
+    return random.uniform(0,1)
+
+
