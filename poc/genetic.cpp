@@ -99,16 +99,24 @@ static Solution Mate(Solution sol1, Solution sol2){
 }
 
 // Mutates the the Solution's genes.
-static Solution Mutate(Solution sol, double prob = .1){
+static Solution Mutate(Solution sol, double prob = .09){
     if(prob > 1 || prob < 0)
         throw;
 
+    // The solution changes all of it's weights with a quarter of the prob of changing only one.
+    if(randomWeight() <= prob / 4){
+        sol.fooWeight = randomWeight();
+        sol.barWeight = randomWeight();
+        sol.foobarWeight = randomWeight();
+        return sol;
+    }
+
     if(randomWeight() <= prob)
-        sol.fooWeight = 1 - sol.fooWeight;
+        sol.fooWeight = randomWeight();
     if(randomWeight() <= prob)
-        sol.barWeight = 1 - sol.barWeight;
+        sol.barWeight = randomWeight();
     if(randomWeight() <= prob)
-        sol.foobarWeight = 1 - sol.foobarWeight;
+        sol.foobarWeight = randomWeight();
 
     return sol;
 }
@@ -137,10 +145,10 @@ static list<Solution> getNewGen(list<Solution> parents){
         Solution parent1;
         Solution parent2;
 
-        do{
-            parent1 = rouletteSelect(parents);
-            parent2 = rouletteSelect(parents);
-        }while(parent1 == parent2);
+        parent1 = rouletteSelect(parents);
+        parent2 = rouletteSelect(parents);
+        if(parent2 == parent1)
+            parent2 = Solution(parents.back().data);
 
         Solution child = Mate(parent1, parent1);
 
@@ -160,13 +168,13 @@ int main(){
         solutions.push_back(Solution(&data));
 
     for(int i = 0; i < 1000000; i ++){
-        cout << "Generation " << i << '\n';
-        cout << "-------------------------\n";
+       cout << "Generation " << i << '\n';
+       cout << "-------------------------\n";
         // Set their fitness.
         for(list<Solution>::iterator it = solutions.begin(); it != solutions.end(); it++){
             it->Print();
 
-            if(it->getGuess() == data.score){
+            if(abs(it->getGuess() -  data.score) <= .0001){
                 string dummy;
                 cout << "Hell yeah!\n";
                 cin >> dummy;
