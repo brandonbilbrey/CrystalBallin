@@ -1,3 +1,1 @@
-if __name__ == '__main__':
-    pass
-
+from Data import Game
