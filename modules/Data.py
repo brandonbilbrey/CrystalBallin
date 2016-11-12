@@ -37,7 +37,7 @@ class Game:
         #self.TwoPointersPercentage = TwoPointersPercentage
 
 class Solution:
-    def __init__(self, data)
+    def __init__(self, data):
         self.data = data
         #self.IsHomeTeamWeight = IsHomeTeamWeight
         #self.TotalAssistsWeight = TotalAssistsWeight
