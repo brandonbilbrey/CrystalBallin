@@ -35,3 +35,40 @@ class Game:
         #self.TwoPointersAttempted = TwoPointersAttempted
         #self.TwoPointersMade = TwoPointersMade
         #self.TwoPointersPercentage = TwoPointersPercentage
+
+class Solution:
+    def __init__(self, data)
+        self.data = data
+        #self.IsHomeTeamWeight = IsHomeTeamWeight
+        #self.TotalAssistsWeight = TotalAssistsWeight
+        #self.AssistTurnoverRatioWeight = AssistTurnOverRatioWeight
+        #self.BlockedTotalWeight = BlockedTotalWeight
+        #self.BlocksTotalWeight = BlocksTotalWeight
+        #self.CoachTechnicalFoulsWeight = CoachTechnicalFoulsWeight
+        #self.EjectionsWeight = EjectionsWeight
+        #self.FastBreakPointsWeight = FastBreakPointsWeight
+        #self.FieldGoalsAttemptedWeight = FieldGoalsAttemptedWeight
+        #self.FieldGoalsMadeWeight = FieldGoalsMadeWeight
+        #self.FieldGoalsPercentageWeight = FieldGoalsPercentageWeight
+        #self.FlagrantFoulsWeight = FlagrantFoulsWeight
+        #self.FreeThrowsAttemptedWeight = FreeThrowsAttemptedWeight
+        #self.FreeThrowsMadeWeight = FreeThrowsMadeWeight
+        #self.FreeThrowsPercentageWeight = FreeThrowsPercentageWeight
+        #self.PersonalFoulsWeight = PersonalFoulsWeight
+        #self.PointsInPaintWeight = PointsInPaintWeight
+        #self.PointsScoredOffTurnoversWeight = PointsScoredOffTurnoversWeight
+        #self.ReboundsOffensiveWeight = ReboundsOffensiveWeight
+        #self.ReboundsDefensiveWeight = ReboundsDefensiveWeight
+        #self.ReboundsTotalWeight = ReboundsTotalWeight
+        #self.SecondChancePointsWeight = SecondChancePointsWeight
+        #self.StealsTotalWeight = StealsTotalWeight
+        #self.TeamReboundsTotalWeight = TeamReboundsTotalWeight
+        #self.TeamTurnoversTotalWeight = TeamTurnoversTotalWeight
+        #self.TechnicalFoulsWeight = TechnicalFoulsWeight
+        #self.ThreePointersAttemptedWeight = ThreePointersAttemptedWeight
+        #self.ThreePointersMadeWeight = ThreePointersMadeWeight
+        #self.ThreePointersPercentageWeight = ThreePointersPercentageWeight
+        #self.TurnoversTotalWeight = TurnoversTotalWeight
+        #self.TwoPointersAttemptedWeight = TwoPointersAttemptedWeight
+        #self.TwoPointersMadeWeight = TwoPointersMadeWeight
+        #self.TwoPointersPercentageWeight = TwoPointersPercentageWeight
