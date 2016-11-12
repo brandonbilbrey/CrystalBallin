@@ -2,6 +2,7 @@ import random
 
 class Game:
     def __init__(self, gameStats):
+        self.score = gameStats["team_score"]
         self.IsHomeTeam = gameStats["is_home_team"]
         self.TotalAssists = gameStats["assists_total"]
         self.AssistTurnoverRatio = gameStats["assists_turnover_ratio"]

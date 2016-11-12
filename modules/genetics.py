@@ -4,7 +4,9 @@ import random
 def getGuess(solution, data):
     total = 0
     for prop in data.__dict__:
-        total += solution.__dict__[prop + "Weight"] * data.__dict__[prop]
+        if prop != "score":
+            total += solution.__dict__[prop + "Weight"] * data.__dict__[prop]
+    return total
 
 def getFitness(solution, data):
     return 1 / abs(getGuess(solution, data) - data.score)
@@ -15,7 +17,8 @@ def mate(sol1, sol2, data):
     returnSol = Solution()
 
     for prop in returnSol.__dict__:
-        returnSol.__dict__[prop] = sol1.__dict__[prop] if (rand() % 2 == 0) else sol2.__dict__[prop]
+        returnSol.__dict__[prop] = sol1.__dict__[prop] if (random.random() % 2 == 0) else sol2.__dict__[prop]
+    return returnSol
 
 def mutate(sol, prob = None):
     if prob == None:
@@ -44,13 +47,20 @@ def rouletteSelect(sols, data):
             return sol
     return sols[-1]
 
-def getNewGen(parents, data):
+def getNewGen(parents, data, doMutate = None):
+    if doMutate == None:
+        doMutate = True
+
     children = []
     for i in range(len(parents)):
         parent1 = rouletteSelect(parents, data)
         parent2 = rouletteSelect(parents, data)
         
         child = mate(parent1, parent2, data)
+
+        if doMutate:
+            child = mutate(child)
+
         children.append(child)
 
     return children
@@ -58,19 +68,20 @@ def getNewGen(parents, data):
 def getSolution(gameList):
     # Create initial random solutions.
     solutions = []
-    for i in range(30):
+    for i in range(10):
         solutions.append(Solution())
 
-    for i in range(1000):
-        for game in gameList:
+    for i in range(1):
+        for j, game in enumerate(gameList):
             solutions = getNewGen(solutions, game)
+            print("Round - %s : Game - %s\n" % (i, j))
 
     # Run the algorithm without mutation, so the solutions converge.
-    for i in range(10):
+    for i in range(2):
         for game in gameList:
-            solutions = getNewGen(solutions, game, false)
+            solutions = getNewGen(solutions, game, False)
 
     # return random of the final solutions.
     random.seed();
-    index = random.randint(0, len(solutions))
+    index = random.randint(0, len(solutions)-1)
     return solutions[index]
