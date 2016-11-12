@@ -16,6 +16,6 @@ def getGamesList():
         for gameLog in logsList:
             games.append(Data.Game(gameLog))
 
-    print "%d games from last season added to returned list" % (totalGames)
+    #print "%d games from last season added to returned list" % (totalGames)
 
     return games
