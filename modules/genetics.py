@@ -65,3 +65,12 @@ def getSolution(gameList):
         for game in gameList:
             solutions = getNewGen(solutions, game)
 
+    # Run the algorithm without mutation, so the solutions converge.
+    for i in range(10):
+        for game in gameList:
+            solutions = getNewGen(solutions, game, false)
+
+    # return random of the final solutions.
+    random.seed();
+    index = random.randint(0, len(solutions))
+    return solutions[index]
