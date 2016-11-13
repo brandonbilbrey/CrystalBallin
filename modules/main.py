@@ -1,4 +1,5 @@
 import genetics as gene, statsinterface as si
+import seatgeek as sg
 
 Solution = None
 
@@ -39,7 +40,7 @@ def predict():
 if __name__ == '__main__':
     flags_dict = {"-v": 2}
     flags = 0
-    
+
     while(1):
         #        try:
             print "t - Train\np - predict"
@@ -48,9 +49,11 @@ if __name__ == '__main__':
                 train()
             elif(user_input[0] == "p"):
                 predict()
+                steams = raw_input('Enter the teams to find tickets!').split()
+                sg.findGameBetweenTwoTeams(steams[0],steams[1])
+
             elif(user_input[0] == "x"):
                 break
 #        except:
 #            print 'Try again\n'
 #            continue
-
