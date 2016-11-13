@@ -1,5 +1,6 @@
 from Data import Game, Solution, randomWeight
 import random
+import os.path
 
 def getGuess(solution, data):
     total = 0
@@ -68,13 +69,18 @@ def getNewGen(parents, data, doMutate = None):
 def getSolution(gameList):
     # Create initial random solutions.
     solutions = []
-    for i in range(10):
-        solutions.append(Solution())
+
+    if os.path.isfile("weight.txt"):
+        solutions = read()
+    else:
+        for i in range(10):
+            solutions.append(Solution())
 
     for i in range(1):
         for j, game in enumerate(gameList):
             solutions = getNewGen(solutions, game)
             print("Round - %s : Game - %s\n" % (i, j))
+            write(solutions)
 
     # Run the algorithm without mutation, so the solutions converge.
     for i in range(2):
@@ -85,3 +91,29 @@ def getSolution(gameList):
     random.seed();
     index = random.randint(0, len(solutions)-1)
     return solutions[index]
+
+def write(solutions):
+    file = open('weight.txt', 'w+')
+    
+    for sol in solutions:
+        for i in sol.__dict__:
+            file.write("{0}:{1}\n".format(i, sol.__dict__[i]))
+        file.write('-------------------\n')
+                     
+def read():
+    file = open('weight.txt', 'r+')
+
+    solutions = []
+    solution = Solution()
+
+    for line in file:
+        if line[0] == '-':
+            solutions.append(solution)
+            solution = Solution()
+            continue
+        
+        vals = line.split(':')
+        solution.__dict__[vals[0]] = float(vals[1])
+
+    return solutions
+

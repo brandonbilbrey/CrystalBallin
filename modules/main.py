@@ -41,7 +41,7 @@ if __name__ == '__main__':
     flags = 0
     
     while(1):
-        try:
+        #        try:
             print "t - Train\np - predict"
             user_input = raw_input().split()
             if(user_input[0] == "t"):
@@ -50,7 +50,7 @@ if __name__ == '__main__':
                 predict()
             elif(user_input[0] == "x"):
                 break
-        except:
-            print 'Try again\n'
-            continue
+#        except:
+#            print 'Try again\n'
+#            continue
 
