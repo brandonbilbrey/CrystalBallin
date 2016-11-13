@@ -1,6 +1,7 @@
+import sys
 import genetics as gene, statsinterface as si
 
-Solution = None
+Solution = gene.read()[0]
 
 def train():
     global Solution
@@ -11,16 +12,15 @@ def train():
         print "{0:40} {1:10}".format(attr,Solution.__dict__[attr])
 
 
-def predict():
+def predict(team1=None, team2=None):
     if Solution is None:
         print 'Must train first'
         return
 
-
-    teams = raw_input('teams: ').split()
-
-    team1 = si.getTeamStats(teams[0], True)
-    team2 = si.getTeamStats(teams[1], True)
+    if(team1 == None or team2 == None):
+        teams = raw_input('teams: ').split()
+        team1 = si.getTeamStats(teams[0], True)
+        team2 = si.getTeamStats(teams[1], True)
 
     score1 = gene.getGuess(Solution, team1)
     score2 = gene.getGuess(Solution, team2)
@@ -37,11 +37,11 @@ def predict():
     return
 
 if __name__ == '__main__':
+    
     flags_dict = {"-v": 2}
     flags = 0
     
     while(1):
-        #        try:
             print "t - Train\np - predict"
             user_input = raw_input().split()
             if(user_input[0] == "t"):
@@ -50,7 +50,25 @@ if __name__ == '__main__':
                 predict()
             elif(user_input[0] == "x"):
                 break
-#        except:
-#            print 'Try again\n'
-#            continue
 
+    if len(sys.argv) ==  1:
+        while(1):
+            try:
+                print "t - Train\np - predict"
+                user_input = raw_input().split()
+                if(user_input[0] == "t"):
+                    train()
+                elif(user_input[0] == "p"):
+                    predict()
+                elif(user_input[0] == "x"):
+                    break
+            except:
+                print 'Try again\n'
+                continue
+    else:
+        if(sys.argv[1] == 'p'):
+            team1=sys.argv[2]
+            team2=sys.argv[3]
+            predict(team1,team2)
+        elif(sys.argv[1] == 't'):
+            train()
