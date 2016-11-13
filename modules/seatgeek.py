@@ -17,4 +17,4 @@ def printGameInfo(game):
 
     print gameInfo
 
-findGameBetweenTwoTeams("bulls","wizards")
+teamDict = {'nba-cle':'Cavaliers','nba-atl':'Hawks','nba-tor':'Raptors','nba-cha':'Hornets','nba-chi':'Bulls'}
