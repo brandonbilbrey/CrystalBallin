@@ -37,6 +37,7 @@ def predict():
     return
 
 if __name__ == '__main__':
+    app.run()
     flags_dict = {"-v": 2}
     flags = 0
     

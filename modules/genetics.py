@@ -85,6 +85,7 @@ def getSolution(gameList):
     # Run the algorithm without mutation, so the solutions converge.
     for i in range(2):
         for game in gameList:
+            print("Round - %s : Game - %s : No Mutate\n" % (i, j))
             solutions = getNewGen(solutions, game, False)
 
     # return random of the final solutions.
