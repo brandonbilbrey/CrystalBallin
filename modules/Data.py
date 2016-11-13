@@ -112,6 +112,19 @@ class Solution:
         #self.TwoPointersMadeWeight = randomWeight()
         self.TwoPointersPercentageWeight = randomWeight()
 
+    #def write(self):
+        #file = open('weight.txt', 'w+')
+
+        #for i in self.__dict__:
+        #    file.write("{0}:{1}\n".format(i, self.__dict__[i]))
+
+    #def read(self):
+        #file = open('weight.txt', 'r+')
+
+        #for line in file:
+            #vals = line.split(':')
+            #self.__dict__[vals[0]] = vals[1]
+
 
 def randomWeight():
     random.seed()
