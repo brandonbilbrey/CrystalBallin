@@ -1,6 +1,10 @@
 import genetics as gene, statsinterface as si
 
+Solution = None
+
 def train():
+    global Solution
+
     GameList = si.getGamesList()
     Solution = gene.getSolution(GameList)
     for attr in Solution.__dict__:
@@ -8,18 +12,45 @@ def train():
 
 
 def predict():
-    pass
+    if Solution is None:
+        print 'Must train first'
+        return
 
+
+    teams = raw_input('teams: ').split()
+
+    team1 = si.getTeamStats(teams[0], True)
+    team2 = si.getTeamStats(teams[1], True)
+
+    score1 = gene.getGuess(Solution, team1)
+    score2 = gene.getGuess(Solution, team2)
+
+    print abs(score1 - score2) / (score1 + score2)
+
+    if score1 > score2:
+        print teams[0] + ' will win\n'
+    elif score2 > score1:
+        print teams[1] + ' will win\n'
+    else:
+        print 'Tie'
+
+    return
 
 if __name__ == '__main__':
     flags_dict = {"-v": 2}
     flags = 0
     
     while(1):
-        print "t - Train\np - predict"
-        user_input = raw_input().split()
-        if(user_input[0] == "t"):
-            train()
-        elif(user_input[0] == "p"):
-            pass
+        try:
+            print "t - Train\np - predict"
+            user_input = raw_input().split()
+            if(user_input[0] == "t"):
+                train()
+            elif(user_input[0] == "p"):
+                predict()
+            elif(user_input[0] == "x"):
+                break
+        except:
+            print 'Try again\n'
+            continue
 
