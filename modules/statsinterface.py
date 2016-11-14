@@ -22,7 +22,7 @@ def getGamesList():
 
 def getTeamStats(teamSlug, isHomeTeam):
     New_query = Stattleship()
-    Token = New_query.set_token('afbc9b6b0404332ed71e4726fba0ce40')
+    Token = New_query.set_token(YOUR TOKEN HERE)
     Output = New_query.ss_get_results(sport='basketball',league='nba',ep='team_season_stats',season_id='nba-2016-2017',team_id=teamSlug)
 
     page = Output[0]
