@@ -5,7 +5,7 @@ from performer import Performer
 
 EVENT_BASE_URL = "https://api.seatgeek.com/2/events"
 EVENTS_PER_PAGE = 500
-CLIENT_ID = "NjE5Mzg4NXwxNDc4OTg3MDA1"
+CLIENT_ID = YOUR CLIENT KEY HERE
 
 class Event:
     def __init__(self, event_data):
