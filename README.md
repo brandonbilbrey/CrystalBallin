@@ -4,6 +4,8 @@ Crystal Ballin' is a program using the [Stattleship](https://www.stattleship.com
 
 ![Crystal Ballin'](https://github.com/brandonbilbrey/CrystalBallin/blob/master/crystalballin.png)
 
+*Logo by Jared Allen*
+
 This was a project for [VandyHacks 2016](http://www.vandyhacks.org) and won 'Best Use of SeatGeek API'
 
 Ticket information powered by [SeatGeek](https://seatgeek.com)
